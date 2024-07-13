@@ -1,0 +1,49 @@
+#include<stdio.h>
+void main()
+{
+    struct
+    {
+        int mark;
+        char sc[20];
+        
+        
+    }s[10];
+    int mark;
+    int n;
+    char grade;
+    char result;
+    
+    if(n<10)
+    {
+        Scanf("%d",&n);
+    for(i=0;i<=n:i++)
+        {
+            for(int j=0;j<7;j++)                                                                :j++)
+            scanf("%c",&s[i].sc);
+            scanf("%d",&s[i].mark);
+        }
+       for(i=0;i<=n:i++) 
+       {
+     ifs(s[i]mark>90){
+       printf("O");
+     else if(mark>80)
+     
+       printf("A");
+     else if(mark>70);
+       printf("B");
+     else if(mark>60);
+       printf("c");
+     else
+       printf("u"                     );
+    if(grade==u)
+     printf("fail");
+     else
+      printf("pass");
+     }
+     for(i=0;i<=n:i++)
+     {
+     printf("%s\t",s[i].sc);
+     printf("%s\t",s[i].mark);
+    }
+}}
+}

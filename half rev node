@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct sll_node
+{
+    int data;
+    struct sll_node *next;
+};
+typedef struct sll_node SLL_NODE;
+void display(SLL_NODE *start)
+{
+ SLL_NODE * tptr;
+        for(tptr=start ;tptr;tptr=tptr->next)
+            printf("%d ",tptr->data);
+}
+SLL_NODE *create_node(int input)
+{
+    SLL_NODE *newnode=(SLL_NODE *)malloc(sizeof(SLL_NODE));
+    newnode->data=input;
+    newnode->next=NULL;
+    return newnode;
+}
+void insert_node(int input,SLL_NODE **start_ptr)
+{
+    SLL_NODE *newnode;
+    SLL_NODE *tptr;
+    newnode=create_node(input);
+    if(*start_ptr==NULL)
+        *start_ptr=newnode;
+    else
+        {
+            for(tptr=(*start_ptr);tptr->next!=NULL;tptr=tptr->next);
+            tptr->next=newnode;
+        }
+}
+
+
+void second_half_reverse(SLL_NODE * start)
+{
+  //Enter your code here
+  if(start==NULL || start->next==NULL)
+  return;
+  SLL_NODE*slow=start,*fast=start;
+  while(fast!=NULL && fast->next!= NULL && fast->next->next!=NULL)
+  {
+    slow=slow->next;
+    fast=fast->next->next;
+  }
+  SLL_NODE*prev=NULL,*curr =slow->next,*next=NULL;
+  while(curr!=NULL)
+  {
+    next=curr->next;
+    curr->next=prev;
+    prev=curr;
+    curr=next;
+  }
+  slow->next=prev;
+}
+
+
+int main()
+{
+    SLL_NODE *start=NULL;
+    int num;
+    while(1)
+    {
+        scanf("%d",&num);
+        if(num==-1)
+            break;
+        insert_node(num,&start);
+
+    }
+    second_half_reverse(start);
+    display(start);
+    return 0;
+}

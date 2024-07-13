@@ -1,0 +1,77 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct sll_node
+{
+    int data;
+    struct sll_node *next;
+};
+typedef struct sll_node SLL_NODE;
+void display(SLL_NODE *start)
+{
+ SLL_NODE * tptr;
+        for(tptr=start ;tptr;tptr=tptr->next)
+            printf("%d ",tptr->data);
+}
+SLL_NODE *create_node(int input)
+{
+    SLL_NODE *newnode=(SLL_NODE *)malloc(sizeof(SLL_NODE));
+    newnode->data=input;
+    newnode->next=NULL;
+    return newnode;
+}
+void insert_node(int input,SLL_NODE **start_ptr)
+{
+    SLL_NODE *newnode;
+    SLL_NODE *tptr;
+    newnode=create_node(input);
+    if(*start_ptr==NULL)
+        *start_ptr=newnode;
+    else
+        {
+            for(tptr=(*start_ptr);tptr->next!=NULL;tptr=tptr->next);
+            tptr->next=newnode;
+        }
+}
+
+int kth_last_node(SLL_NODE * start,int k_val)
+{
+ SLL_NODE*first =start;
+ SLL_NODE*second=start;
+ for(int i=0;i< k_val;i++)
+ {
+   if(first==NULL)
+   {
+     return-1;
+     
+   }
+   first=first->next;
+ }
+ while(first!=NULL)
+ {
+   first=first->next;
+   second=second->next;
+ }
+ return second->data;
+ 
+}
+
+int main()
+{
+    SLL_NODE *start=NULL;
+    int num;
+    while(1)
+    {
+        scanf("%d",&num);
+        if(num==-1)
+            break;
+        insert_node(num,&start);
+
+    }
+    int k_val;
+    scanf("%d",&k_val);
+
+    int res;
+    res=kth_last_node(start,k_val);
+    printf("%d",res);
+    return 0;
+}

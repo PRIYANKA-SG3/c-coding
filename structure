@@ -1,0 +1,38 @@
+[6:52 am, 13/7/2024] Priya❣️: #include <stdio.h>
+
+void main()
+{
+  struct
+  {
+    char name[100];
+    int mark;
+    float avg;
+  }s[10];
+  int n;
+  printf("enter no.of students");
+  scanf("%d",&n);
+  if(n<10)
+  {
+      printf("enter student details");
+      for(int i=0;i<n;i++)
+      {
+          for(int j=0;j,5;j++)
+          scanf("%c",&s[i].name[j]);
+          scanf("%d",&s[i].mark);
+          scanf("%f",&s[i].avg);
+      }
+  }
+  printf("student details");
+  printf("name\t\tmark\t\t avg");
+  
+{
+     for(int j=0;j,5;j++)
+          printf("%s",&s[i].name);
+          printf("%d",&s[i].mark);
+          printf("%f",&s[i].avg);
+     }      printf("\n");
+
+}
+else
+printf("enter below 10");
+}
